@@ -1,12 +1,11 @@
 const loadProducts = () => {
-  // const url = `https://fakestoreapi.com/products`;
-  const url = `api.json`;
+  const url = `https://fakestoreapi.com/products`;
+  // const url = `api.json`;
   fetch(url)
     .then((response) => response.json())
     .then((data) => showProducts(data));
 };
 loadProducts();
-
 // show all product in UI 
 const showProducts = (products) => {
   const allProducts = products.map((pd) => pd);
@@ -16,19 +15,31 @@ const showProducts = (products) => {
     div.classList.add("product", "custom-border");
     div.innerHTML = `<div class="single-product">
       <div>
-    <img class="product-image" src=${image}></img>
+      <img class="product-image" src=${image}></img><br>
       </div>
       <h3>${product.title}</h3>
       <p>Category: ${product.category}</p>
+      <strong class="count"><i class="fas fa-male"> count </i> : ${product.rating.count}</strong>
+      <strong class="rate"><i class="fas fa-star-half-alt"> rateing </i> : ${product.rating.rate}</strong>
       <h2>Price: $ ${product.price}</h2>
-      <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn btn-success">add to cart</button>
-      <button id="details-btn" class="btn btn-danger">Details</button></div>
+      <button onclick="addToCart(${product.price})" id="addToCart-btn" class="buy-now btn btn-success me-2">add to cart</button>
+      <button onclick="details(${product.id})" id="details-btn" class="btn btn-danger"data-bs-toggle="modal" data-bs-target="#exampleModal">Details</button></div>
       `;
     document.getElementById("all-products").appendChild(div);
   }
 };
+//details//
+const details = (id) => {
+  const url = `https://fakestoreapi.com/products/${id}`;
+  fetch(url).then(res => res.json()).then(data => showModal(data));
+}
+const showModal = id => {
+  // console.log(id);
+  alert(id.title)
+}
+//////////////////////////////////////
 let count = 0;
-const addToCart = (id, price) => {
+const addToCart = (price) => {
   // console.log(id);
   count = count + 1;
   updatePrice("price", price);
