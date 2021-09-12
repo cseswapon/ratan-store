@@ -12,7 +12,10 @@ body {
   outline: none;
   border: none;
 }
-.search-box {
+input{
+  width: 1020px;
+}
+.search-box{
   border: 1px solid rgb(3, 118, 211);
   width: 100%;
   border-radius: 5px;
@@ -60,6 +63,7 @@ body {
 }
 .cart {
   padding: 10px;
+  background-color: white;
   box-shadow: 0px 3px 12px #d0c4c4;
   border-radius: 5px;
   margin-right: 30px;
@@ -93,7 +97,8 @@ body {
     box-shadow: 10px 10px 20px gray;
     border-radius: 5px;
     margin-right: 30px;
-    position: fixed;
+    background-color: white;
+    /* position: fixed; */
   }
   .cart-main {
     padding-right: 10px;
