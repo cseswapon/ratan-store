@@ -13,7 +13,6 @@
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
     integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
-
   <!-- google Montserrat  font  -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -21,15 +20,22 @@
 </head>
 
 <body class="container">
-  <header></header>
-  <main class="main">
+  <div id="spiner">
+    <img src="./img/spiner.gif" alt="spiner">
+  </div>
+  <main class="main" style="display: none;" id="main-section">
+    <h1 class="text-center"><strong><span class="text-danger">Welcome</span> to <span class="text-primary">Ratan
+          Store</span></strong>
+    </h1><br>
+    <!-- single card box -->
+    <div id="single"></div>
+    <!-- single card end -->
+    <!-- search box -->
     <div class="search-field">
-      <div class="search-box">
-        <input id="input-field" placeholder="search..." class="search-field" type="text" />
-        <button type="button" class="btn btn-primary search-button" data-toggle="button" aria-pressed="false"
-          autocomplete="off" id="search-btn" onclick="loadProducts()">
-          Search
-        </button>
+      <div class="form-group" id="input-group">
+        <input type="input-field" id="input-field" class="form-control" placeholder="Search...">
+        <button type="submit" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off"
+          id="search-btn" onclick="searchProduct()">Search</button>
       </div>
     </div><br>
     <div class="row">
