@@ -100,9 +100,9 @@ const showModal = card => {
       <div>
         <img class="product-image" src=${card.image}></img><br>
       </div>
-      <h3>${card.title}</h3>
-      <p>${card.description}</p>
-      <h2>Price: $ ${card.price}</h2>
+      <h4><strong style="color:#337ab7">${card.title}</strong></h4>
+      <p style="color:rgb(169 68 66)">${card.description.slice(0, 100)}</p>
+      <h2 style="color:rgb(51 122 183)">Price: $ ${card.price}</h2>
     </div>
   `;
   divFiled.appendChild(div);
