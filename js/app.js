@@ -3,7 +3,55 @@ console.clear();
 setTimeout(() => {
   document.getElementById('spiner').style.display = 'none';
   document.getElementById('main-section').style.display = 'block';
-}, 5000);
+}, 3500);
+
+//search custom
+
+const searchProduct = () => {
+  const inputField = document.getElementById('input-field');
+  const category = inputField.value;
+  if (!category) {
+    alert('please valid category');
+    return;
+  }
+  const url = `https://fakestoreapi.com/products/category/${category}`;
+  fetch(url)
+    .then((res) => res.json())
+    .then((data) => searchingProduct(data));
+  inputField.value = '';
+}
+
+// show search product //
+
+const searchingProduct = products => {
+  if (products.length === 0) {
+    alert('not found this result ! please enter your valid category');
+    return;
+  }
+  document.getElementById("all-products").textContent = '';
+  for (const product of products) {
+    const image = product.image;
+    const div = document.createElement("div");
+    div.classList.add("product", "custom-border");
+    div.innerHTML = `
+    <div class="single-product">
+      <div>
+      <img class="product-image" src=${image}></img><br>
+      </div>
+      <h3>${product.title}</h3>
+      <p>Category: ${product.category}</p>
+      <strong class="count"><i class="fas fa-male"> count </i> : ${product.rating.count}</strong>
+      <strong class="rate"><i class="fas fa-star-half-alt"> rateing </i> : ${product.rating.rate}</strong>
+      <h2>Price: $ ${product.price}</h2>
+      <button onclick="addToCart(${product.price})" id="addToCart-btn" class="buy-now btn btn-success me-2">add to cart</button>
+      <button onclick="details(${product.id})" id="details-btn" class="btn btn-danger"data-bs-toggle="modal" data-bs-target="#exampleModal">Details</button>
+    </div>
+      `;
+    document.getElementById("all-products").appendChild(div);
+  }
+}
+
+// show all product //
 const loadProducts = () => {
   const url = `https://fakestoreapi.com/products`;
   // const url = `api.json`;
@@ -112,3 +160,12 @@ const updateTotal = () => {
   const grandTotal = getInputValue("price") + getInputValue("delivery-charge") + getInputValue("total-tax");
   document.getElementById("total").innerText = grandTotal.toFixed(2);
 };
+
+// buy now //
+
+const buynow = () => {
+  const buy = confirm('are you sure !')
+  if (buy === true) {
+    print();
+  }
+}
