@@ -40,8 +40,8 @@ const searchingProduct = products => {
       </div>
       <h3>${product.title}</h3>
       <p>Category: ${product.category}</p>
-      <strong class="count"><i class="fas fa-male"> count </i> : ${product.rating.count}</strong>
-      <strong class="rate"><i class="fas fa-star-half-alt"> rateing </i> : ${product.rating.rate}</strong>
+      <strong class="count"><i class="fas fa-male"> Total-Rateing </i> : ${product.rating.count}</strong>
+      <strong class="rate"><i class="fas fa-star-half-alt"> Average-Rateing </i> : ${product.rating.rate}</strong>
       <h2>Price: $ ${product.price}</h2>
       <button onclick="addToCart(${product.price})" id="addToCart-btn" class="buy-now btn btn-success me-2">add to cart</button>
       <button onclick="details(${product.id})" id="details-btn" class="btn btn-danger"data-bs-toggle="modal" data-bs-target="#exampleModal">Details</button>
@@ -74,8 +74,8 @@ const showProducts = (products) => {
       </div>
       <h3>${product.title}</h3>
       <p>Category: ${product.category}</p>
-      <strong class="count"><i class="fas fa-male"> count </i> : ${product.rating.count}</strong>
-      <strong class="rate"><i class="fas fa-star-half-alt"> rateing </i> : ${product.rating.rate}</strong>
+      <strong class="count"><i class="fas fa-male"> Total-Rateing </i> : ${product.rating.count}</strong>
+      <strong class="rate"><i class="fas fa-star-half-alt"> Average-Rateing </i> : ${product.rating.rate}</strong>
       <h2>Price: $ ${product.price}</h2>
       <button onclick="addToCart(${product.price})" id="addToCart-btn" class="buy-now btn btn-success me-2">add to cart</button>
       <button onclick="details(${product.id})" id="details-btn" class="btn btn-danger"data-bs-toggle="modal" data-bs-target="#exampleModal">Details</button>
